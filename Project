@@ -61,9 +61,25 @@ void add()
 }
 void edit()
 {
-  int c;
-  printf("hello");
-  printf("\npress 0 to exit:\t");
+  int c,i,j;
+  printf("enter code\t");
+  scanf("%d",&b);
+  for(i=0;i<n;i++)
+  {
+    if(b==code[i])
+    {
+      printf("Good's Name :\t%s",a[i].name);
+      printf("\nBrand:\t%s",a[i].brand);
+      printf("\nSize:\t%s\n",a[i].size);
+    	printf("\nEnter goods name:\t");
+        scanf("%s", a[i].name);
+        printf("\n Brand name:\t");
+        scanf("%s", a[i].brand);
+        printf("\nEnter Size:\t");
+        scanf("%s", a[i].size);
+	}
+  }
+  printf("\npress 0 to exit or 3 to edit again:\t");
     scanf("%d",&c);
     if(c==0)
     {
