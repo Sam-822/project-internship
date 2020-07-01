@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include<string.h>
+#include<stdint.h>
+void add();
+void edit();
+void search();
+void calculate();
+int n;
+void mainmenu()
+{
+  printf("MENU\n1.Add Goods\n2.Edit Goods\n3.Search Goods\n4.Calculate Bill\nSelect");
+  scanf("%d",&n);
+  switch(n)
+  {
+    case 1: 
+         add();
+         break;
+    case 2:
+         edit();
+         break;
+    case 3:
+         search();
+         break;
+    case 4:
+         calculate();
+         break;
+    case 5:
+         printf("Out of Range");
+         break;
+  }
+}
+struct goods
+{
+  char name[10],brand[10],size[4];
+  int code[3];   
+};
+struct goods a[10];
+void add()
+{
+   int i, j,n,num,c;
+   printf("enter no of goods to be add:\t");
+   scanf("%d",&n);
+    for(i = 0; i < n; i++)
+    {
+        printf("\nEnter %dst goods name:\t", i+1);
+        scanf("%s", a[i].name);
+        printf("\n Brand name:\t");
+        scanf("%s", a[i].brand);
+        printf("\nEnter Size:\t");
+        scanf("%s", a[i].size);
+        printf("\nEnter code of 3 digit no:\t");
+        scanf("%d",a[i].code);
+    }
+    printf("\npress 0 to exit:\t");
+    scanf("%d",&c);
+    if(c==0)
+    {
+      mainmenu();
+    }
+}
+void edit()
+{
+  int c;
+  printf("hello");
+  printf("\npress 0 to exit:\t");
+    scanf("%d",&c);
+    if(c==0)
+    {
+      mainmenu();
+    }
+}
+struct search
+{
+  int d[10];
+};
+struct search b;
+
+void search()
+{
+  int c,i,j;
+  printf("enter code\t");
+  scanf("%d",b.d);
+  for(i=0;i<n;i++)
+  {
+    if(b.d==a[i].code)
+    {
+      printf("%s",a[i].name);
+      printf("%s",a[i].brand);
+      printf("%s",a[i].size);
+    }
+  }
+  printf("\npress 0 to exit:\t");
+    scanf("%d",&c);
+    if(c==0)
+    {
+      mainmenu();
+    }
+}
+void calculate()
+{
+  int c;
+   printf("\npress 0 to exit:\t");
+   scanf("%d",&c);
+   if(c==0)
+   {
+    mainmenu();
+   }
+}
+int main()
+{
+  mainmenu();
+}
