@@ -6,6 +6,8 @@ void edit();
 void search();
 void calculate();
 int n;
+int code[100]; 
+int b;  
 void mainmenu()
 {
   printf("MENU\n1.Add Goods\n2.Edit Goods\n3.Search Goods\n4.Calculate Bill\nSelect");
@@ -32,9 +34,8 @@ void mainmenu()
 struct goods
 {
   char name[10],brand[10],size[4];
-  int code[3];   
 };
-struct goods a[10];
+ struct goods a[10];
 void add()
 {
    int i, j,n,num,c;
@@ -49,7 +50,7 @@ void add()
         printf("\nEnter Size:\t");
         scanf("%s", a[i].size);
         printf("\nEnter code of 3 digit no:\t");
-        scanf("%d",a[i].code);
+        scanf("%d",&code[i]);
     }
     printf("\npress 0 to exit:\t");
     scanf("%d",&c);
@@ -69,32 +70,29 @@ void edit()
       mainmenu();
     }
 }
-struct search
-{
-  int d[10];
-};
-struct search b;
-
 void search()
 {
   int c,i,j;
   printf("enter code\t");
-  scanf("%d",b.d);
+  scanf("%d",&b);
   for(i=0;i<n;i++)
   {
-    if(b.d==a[i].code)
+    if(b==code[i])
     {
-      printf("%s",a[i].name);
-      printf("%s",a[i].brand);
-      printf("%s",a[i].size);
+      printf("Good's Name :\t%s",a[i].name);
+      printf("\nBrand:\t%s",a[i].brand);
+      printf("\nSize:\t%s",a[i].size);
     }
   }
-  printf("\npress 0 to exit:\t");
+  printf("\npress 0 to exit or 3 to search again:\t");
     scanf("%d",&c);
     if(c==0)
     {
       mainmenu();
     }
+    else if(c==3){
+    	search();
+	}
 }
 void calculate()
 {
